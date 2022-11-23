@@ -1,0 +1,17 @@
+/* 1.0 VENDOR css files */
+
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts.css);
+
+body {
+  background-color: aqua;
+}
+
+.test{
+  background-color: white;
+
+  &__two{
+    color: red;
+    transform: translateX(5px);
+  }
+}
