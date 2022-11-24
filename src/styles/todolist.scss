@@ -1,0 +1,18 @@
+.todolist {
+  padding: 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  max-width: 900px;
+
+  &__list{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}

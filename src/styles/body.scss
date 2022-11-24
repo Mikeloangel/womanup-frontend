@@ -1,0 +1,19 @@
+.body {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 20px 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  background-color: $color-bg;
+  background-image:
+    radial-gradient(circle, rgba(150,26,26,0.28) 0%, rgba(177,60,60,0) 39%),
+    radial-gradient(circle, rgba(195,78,200,0.34) 0%, rgba(195,78,200,0) 39%);
+  background-position: -25vh 21vw, 49vh -21vw;
+  background-repeat: no-repeat, no-repeat;
+
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: white;
+}

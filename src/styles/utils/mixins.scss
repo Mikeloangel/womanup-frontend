@@ -1,0 +1,8 @@
+@mixin applyHover() {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+@mixin applyDefaultTransition() {
+  transition: all 300ms ease-in-out;
+}
