@@ -86,6 +86,9 @@
 .todoitem:hover {
   transform: translateY(-3px);
 }
+.todoitem_checked {
+  opacity: 0.2;
+}
 .todoitem__done {
   padding: 20px;
   margin: 0;
@@ -98,6 +101,12 @@
   box-sizing: border-box;
   color: #E4E5EA;
   font-size: 16px;
+}
+.todoitem__date_today {
+  color: orange;
+}
+.todoitem__date_past {
+  color: red;
 }
 .todoitem__caption {
   padding: 0 0 7px 0;
@@ -141,4 +150,76 @@
   max-width: 32px;
   object-fit: contain;
   object-position: center;
+}
+
+.edit {
+  padding: 20px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  max-width: 600px;
+  background-color: #0E1014;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(94, 30, 91, 0.6);
+}
+.edit__caption {
+  padding: 0 0 45px 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 28px;
+  color: #E4E5EA;
+}
+
+.form {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form__label {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  color: #b0b1b8;
+}
+.form__input {
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid black;
+  color: #E4E5EA;
+  font-size: 16px;
+}
+.form__input_error {
+  border-bottom: 1px solid coral;
+  color: coral;
+}
+.form__input_small {
+  margin-right: 12px;
+}
+.form__input_textarea {
+  margin-bottom: 20px;
+}
+.form__error {
+  color: coral;
+  font-size: 10px;
+}
+.form__submit {
+  padding: 12px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #2154ba;
+  color: #E4E5EA;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.form__submit_disabled, .form__submit:disabled {
+  background-color: rgb(142, 142, 142);
+  color: rgb(43, 42, 59);
+  cursor: initial;
 }

@@ -32,6 +32,15 @@ class Api {
   // get todo list
   getTodoList = () => this._getRouteRequest('/', 'GET');
 
+  // set check
+  putTodoDone = (id) => this._getRouteRequest(`/done/${id}`, 'PUT');
+
+  // removes check
+  deleteTodoDone = (id) => this._getRouteRequest(`/done/${id}`, 'DELETE');
+
+  //delete
+  deleteTodoItem = (id) => this._getRouteRequest(`/${id}`,'DELETE');
+
 }
 
 const api = new Api({

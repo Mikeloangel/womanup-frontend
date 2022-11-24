@@ -1,0 +1,71 @@
+.form {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &__label {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: $color-text-darker;
+
+  }
+
+  &__input{
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid black;
+
+    color: $color-text;
+    font-size: 16px;
+
+    &_error{
+      border-bottom: 1px solid coral;
+      color: coral;
+    }
+
+    &_small{
+      margin-right: 12px;
+    }
+
+    &_textarea{
+      margin-bottom: 20px;
+    }
+  }
+
+  &__error{
+    color: coral;
+    font-size: 10px;
+  }
+
+  &__submit{
+    padding: 12px;
+    margin: 0;
+    box-sizing: border-box;
+
+    background-color: $color-button;
+    color: $color-button-text;
+
+    border: 0;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    &_disabled, &:disabled{
+      background-color: $color-button-disabled;
+      color: $color-button-text-disabled;
+
+      cursor: initial;
+    }
+  }
+}

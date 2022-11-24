@@ -1,0 +1,20 @@
+.edit{
+  padding: 20px;
+  margin: 40px auto;
+  box-sizing: border-box;
+
+  max-width: 600px;
+
+  background-color: $color-bg;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(94, 30, 91, 0.6);
+
+  &__caption{
+    padding: 0 0 45px 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-size: 28px;
+    color: $color-text;
+  }
+}

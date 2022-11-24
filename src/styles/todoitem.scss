@@ -18,12 +18,17 @@
     transform: translateY(-3px);
   }
 
+  &_checked{
+    opacity: .2;
+  }
+
   &__done {
     padding: 20px;
     margin: 0;
 
     width: 20px;
     height: 20px;
+
   }
 
   &__date {
@@ -33,6 +38,14 @@
 
     color: $color-text;
     font-size: 16px;
+
+    &_today{
+      color: orange;
+    }
+
+    &_past{
+      color: red;
+    }
   }
 
   &__caption {
@@ -86,9 +99,5 @@
       object-fit: contain;
       object-position: center;
     }
-  }
-
-  & * {
-    // outline: 1px solid coral;
   }
 }
