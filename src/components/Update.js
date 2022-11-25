@@ -136,7 +136,6 @@ export default function Update({ item, onUpdate, title = 'Edit', isDirtyFormik =
 
         <label className="form__label" htmlFor="name">Список файлов</label>
         <textarea
-          // className={`form__input form__input_textarea`}
           className={`form__input form__input_textarea form__input_small ${formik.touched.fileList && formik.errors.fileList && 'form__input_error'}`}
           name="fileList"
           value={formik.values.fileList}
@@ -144,7 +143,6 @@ export default function Update({ item, onUpdate, title = 'Edit', isDirtyFormik =
           onBlur={formik.handleBlur}
         />
 
-        {/* <button type="submit" className="form__submit" disabled={(!formik.dirty || isDirtyFormik) && !formik.isValid}>Сохранить</button> */}
         <button type="submit" className="form__submit" disabled={!(formik.isValid && (formik.dirty || !isDirtyFormik))}>Сохранить</button>
       </form>
     </main>

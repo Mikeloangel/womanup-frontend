@@ -13,11 +13,13 @@ Frontend for TodoList
 
 ## Git Hub
 
-[deploy SEE in action](http://62.84.124.240:3000/)
+## Links
 
-[Backend part source with static build](https://github.com/Mikeloangel/womanup-frontend)
+[deploy See in action](http://62.84.124.240:3000/)
 
-[Link](https://github.com/Mikeloangel/womanup-frontend)
+[Frontend part git source](https://github.com/Mikeloangel/womanup-frontend)
+
+[Backend part with static frontend](https://github.com/Mikeloangel/womanup-backend)
 
 ## Paths
 
