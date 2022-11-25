@@ -25,12 +25,15 @@ function App() {
   }, []);
 
   // hadlers
+  // api request to change todo item isFinished state
+  // returns promise back to <TodoList onTodoChecked={}/>
   function handleTotoItemCheck(item) {
     return item.isFinished ?
       api.deleteTodoDone(item._id) :
       api.putTodoDone(item._id);
   }
 
+  // deletes item
   function handleTodoItemDelete(id) {
     api.deleteTodoItem(id)
       .then(() => {
@@ -41,19 +44,26 @@ function App() {
       })
   }
 
+  // handles request to edit item
   function handleTodoItemEdit(item) {
     setItemToEdit(item);
     history.push('/update');
   }
 
+  // formats submitted object under API standarrts
   function formatObjectForApi(values) {
     const { year, month, day, hour, minute } = values;
 
+    // cloning object fields. othervise we can loose controlled state for inputs
     const obj = {...values};
 
+    // formatting date
     obj.expires = new Date(`${year}-${month}-${day} ${hour}:${minute}:00`);
+
+    // formatting fileList to array from string
     obj.fileList = values.fileList.split('\n').filter(url => url.trim().length !== 0);
 
+    // excluding unused fields (Joi check and save traffic)
     delete obj.year;
     delete obj.month;
     delete obj.day;
@@ -63,6 +73,7 @@ function App() {
     return obj;
   }
 
+  // submitted values from todoitem edit
   function hadnleUpdateItem(values) {
     api.updateToDoItem(formatObjectForApi(values))
       .then(updatedItem => {
@@ -74,6 +85,7 @@ function App() {
       });
   }
 
+  // submitted values from todoitem add
   function handleAddItem(values) {
     api.addToDoItem(formatObjectForApi(values))
     .then(newItem => {
@@ -133,26 +145,3 @@ function App() {
 }
 
 export default App;
-
-/*
-Code structure
-
-App.js
-<Header> Show link to add new resource, on recource add back button
-
-/add
-<Add> Form with formik validation
-
-/about
-<About> copyinfo
-
-/404
-<Notfound>
-
-Additional components
-<Spinner>
-<PopupWithForm> to edit
-
-<Footer> with basic copy info
-
-*/

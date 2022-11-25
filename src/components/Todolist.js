@@ -21,9 +21,3 @@ export default function Todolist({ list, onTodoChecked, onTodoDelete, onTodoEdit
     </main>
   )
 }
-
-/**
-/
-<TodoList>
-  Additional - sort
- */

@@ -14,6 +14,8 @@ export default function Todoitem({ item, onCheck, onDelete, onEdit }) {
   dayjs.extend(isToday);
   dayjs.extend(isSameOrBefore);
 
+  // handles isFinished toggling, onCheck returns promise to be resolved here
+  // because api requests are in upper state
   function handleCheck() {
     onCheck(item)
       .then(() => {
@@ -21,19 +23,23 @@ export default function Todoitem({ item, onCheck, onDelete, onEdit }) {
       });
   }
 
+  // handles delete item
   function handleDelete() {
     onDelete(item._id);
   }
 
+  // handles edit item
   function handleEdit(){
     onEdit(item);
   }
 
   const itemDate = new Date(item.expires);
 
+  // composing classNames for todo item
   const todoItemClassName = `todoitem ${checked && "todoitem_checked"}`;
-  let todoDateClassName = `todoitem__date`;
 
+  // composing classNames for date color
+  let todoDateClassName = `todoitem__date`;
   if (!checked) {
     if (dayjs(itemDate).isToday()) {
       todoDateClassName += ' todoitem__date_today';
