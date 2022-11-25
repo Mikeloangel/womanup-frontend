@@ -12,6 +12,9 @@ Frontend for TodoList
 * CSS /SCSS
 
 ## Git Hub
+
+[Backend part source with static build](https://github.com/Mikeloangel/womanup-frontend)
+
 [Link](https://github.com/Mikeloangel/womanup-frontend)
 
 ## Paths
