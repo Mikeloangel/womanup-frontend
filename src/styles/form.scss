@@ -36,6 +36,7 @@
 
     &_small{
       margin-right: 12px;
+      min-width: 70px;
     }
 
     &_textarea{
@@ -46,6 +47,10 @@
   &__error{
     color: coral;
     font-size: 10px;
+    min-height: 12px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 
   &__submit{

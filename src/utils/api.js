@@ -17,8 +17,10 @@ class Api {
 
   _getRouteRequest(route, method, body = null) {
     return body ?
-      fetch(`${this._baseUrl}${route}`, { method, headers: this._headers, body: JSON.stringify(body) })
+      fetch(`${this._baseURL}${route}`, { method, headers: this._headers, body: JSON.stringify(body) })
         .then(this._getJSON) :
+      // fetch(`${this._baseUrl}${route}`, { method, headers: this._headers, body: JSON.stringify(body) })
+      //   .then(this._getJSON) :
       fetch(`${this._baseURL}${route}`, { method, headers: this._headers })
         .then(this._getJSON);
   }
@@ -38,8 +40,14 @@ class Api {
   // removes check
   deleteTodoDone = (id) => this._getRouteRequest(`/done/${id}`, 'DELETE');
 
-  //delete
-  deleteTodoItem = (id) => this._getRouteRequest(`/${id}`,'DELETE');
+  // delete item
+  deleteTodoItem = (id) => this._getRouteRequest(`/${id}`, 'DELETE');
+
+  // update ToDo item
+  updateToDoItem = (obj) => this._getRouteRequest(`/${obj._id}`, 'PATCH', obj);
+
+  // add ToDo item
+  addToDoItem = (obj) => this._getRouteRequest('/','POST',obj);
 
 }
 

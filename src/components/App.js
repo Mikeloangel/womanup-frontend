@@ -5,6 +5,7 @@ import Todolist from './Todolist';
 
 import api from '../utils/api';
 import Update from './Update';
+import AddTodo from './AddTodo';
 
 function App() {
   const history = useHistory();
@@ -45,6 +46,46 @@ function App() {
     history.push('/update');
   }
 
+  function formatObjectForApi(values) {
+    const { year, month, day, hour, minute } = values;
+
+    const obj = {...values};
+
+    obj.expires = new Date(`${year}-${month}-${day} ${hour}:${minute}:00`);
+    obj.fileList = values.fileList.split('\n').filter(url => url.trim().length !== 0);
+
+    delete obj.year;
+    delete obj.month;
+    delete obj.day;
+    delete obj.hour;
+    delete obj.minute;
+
+    return obj;
+  }
+
+  function hadnleUpdateItem(values) {
+    api.updateToDoItem(formatObjectForApi(values))
+      .then(updatedItem => {
+        setTodoListItems(prevList => [updatedItem, ...prevList.filter(item => item._id !== updatedItem._id)]);
+        history.push('/');
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
+  function handleAddItem(values) {
+    api.addToDoItem(formatObjectForApi(values))
+    .then(newItem => {
+      setTodoListItems(prevList => [...prevList, newItem]);
+      history.push('/');
+    })
+    .catch(err =>{
+      console.error(err);
+    });
+    console.log(values);
+  }
+
   return (
     <div className="body">
       <Header />
@@ -61,12 +102,22 @@ function App() {
         </Route>
 
         <Route exact path='/add'>
-          <div>Add todo</div>
+          <AddTodo
+            onAdd={handleAddItem}
+            title='Создать Todo'
+            isDirtyFormik={true}
+          />
         </Route>
 
-        <Route exact path='/update/'>
-          <Update item={itemToEdit}/>
+        <Route exact path='/update'>
+          <Update
+            item={itemToEdit}
+            onUpdate={hadnleUpdateItem}
+            title="Обновить Todo"
+            isDirtyFormik={false}
+          />
         </Route>
+
 
         <Route exact path='/about'>
           <div>ABout</div>

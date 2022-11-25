@@ -1,8 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import dayjs from 'dayjs';
-import { useHistory } from "react-router-dom";
 
 /**
  * PARAMS:
@@ -11,20 +9,18 @@ import { useHistory } from "react-router-dom";
  * title - title shown on form
  * isDirtyFormik - tells if form needed to be changed to toogle submit button
  */
-export default function Update({ item, onUpdate, title = 'Edit', isDirtyFormik = true }) {
-  const history = useHistory();
-
+export default function AddTodo({ onAdd, title = 'Add', isDirtyFormik = true }) {
   // formik logics
   const formik = useFormik({
     initialValues: {
-      caption: item?.caption,
-      description: item?.description,
-      year: dayjs(item?.expires).format('YYYY'),
-      month: dayjs(item?.expires).format('MM'),
-      day: dayjs(item?.expires).format('DD'),
-      hour: dayjs(item?.expires).format('HH'),
-      minute: dayjs(item?.expires).format('mm'),
-      fileList: item?.fileList.join('\n')
+      caption: '',
+      description: '',
+      year: '',
+      month: '',
+      day: '',
+      hour: '',
+      minute: '',
+      fileList: '',
     },
     validationSchema: Yup.object({
       caption: Yup.string().min(2, 'Мминимум 2 символа').max(128, 'Не более 128 символов').required('Введите заголовок'),
@@ -36,16 +32,11 @@ export default function Update({ item, onUpdate, title = 'Edit', isDirtyFormik =
       minute: Yup.number().min(0, 'минуты от 0 до 60').max(60, 'минуты от 0 до 60').required('введите минуты'),
     }),
     onSubmit: (values) => {
-      if (typeof onUpdate === 'function') {
-        onUpdate({ ...values, _id: item._id });
+      if (typeof onAdd === 'function') {
+        onAdd(values);
       }
     }
   });
-
-  // temporal desicion: if no item go to index
-  if (!item) {
-    history.push('/');
-  }
 
   return (
     <main className="edit">
@@ -145,7 +136,7 @@ export default function Update({ item, onUpdate, title = 'Edit', isDirtyFormik =
         />
 
         {/* <button type="submit" className="form__submit" disabled={(!formik.dirty || isDirtyFormik) && !formik.isValid}>Сохранить</button> */}
-        <button type="submit" className="form__submit" disabled={!(formik.isValid && (formik.dirty || !isDirtyFormik))}>Сохранить</button>
+        <button type="submit" className="form__submit" disabled={!(formik.isValid && (formik.dirty || !isDirtyFormik))}>Добавить</button>
       </form>
     </main>
   )
