@@ -11,11 +11,9 @@ Frontend for TodoList
 * HTML
 * CSS /SCSS
 
-## Git Hub
-
 ## Links
 
-[deploy See in action](http://62.84.124.240:3000/)
+[deploy See in action](https://mestology.nomoredomains.club/todo/)
 
 [Frontend part git source](https://github.com/Mikeloangel/womanup-frontend)
 
@@ -29,8 +27,6 @@ Frontend for TodoList
 * Filter todo
 * Edit todo with path /edit/:id
 * Merge Edit/Add component
-* check quotes for tag
-* limit requests
 * delete confirmation
 
 ## Scripts
