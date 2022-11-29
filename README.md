@@ -13,7 +13,7 @@ Frontend for TodoList
 
 ## Links
 
-[deploy See in action](https://mestology.nomoredomains.club/todo/)
+[deploy See in action](http://mestology.nomoredomains.club:3000/)
 
 [Frontend part git source](https://github.com/Mikeloangel/womanup-frontend)
 

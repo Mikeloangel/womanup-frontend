@@ -73,7 +73,7 @@ class Api {
 
 // instantiates api
 const api = new Api({
-  baseURL: 'https://mestology.nomoredomains.club/todo/api',
+  baseURL: 'http://mestology.nomoredomains.club:3000/api',
   headers: {
     'Content-Type': 'application/json'
   }
